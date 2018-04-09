@@ -80,14 +80,6 @@ def stopSimulation():
     vrep.simxStopSimulation(__clientID, vrep.simx_opmode_blocking)
 
 
-# def getLidarReading():
-#     code, _, data = vrep.simxGetVisionSensorDepthBuffer(__clientID, lidar, vrep.simx_opmode_blocking)
-#     if not code == 0:
-#         print('Error while retrieving LIDAR sensor data')
-#         sys.exit()
-#     return data[0]
-
-
 def takeStep():
     vrep.simxSynchronousTrigger(__clientID)
 
@@ -121,28 +113,3 @@ def setMotorVelocity(velocity, torque):
 def setSteeringAngle(angle):
     vrep.simxSetJointTargetPosition(__clientID,steer_handle,angle,vrep.simx_opmode_blocking)
 
-
-# vrep.simxFinish(-1)
-# __clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)  # Connect to V-REP
-# vrep.simxSynchronous(__clientID, True)
-# vrep.simxStartSimulation(__clientID, vrep.simx_opmode_blocking)
-#
-# vrep.simxSetJointTargetVelocity(__clientID, rotor, 20 * math.pi, vrep.simx_opmode_blocking)
-#
-# if __clientID == -1:
-#     print('Failed connecting to remote API server')
-#     sys.exit()
-#
-# sensor_value = []
-# for i in range(105):
-#     vrep.simxSynchronousTrigger(__clientID)
-#     code, _, data = vrep.simxGetVisionSensorDepthBuffer(__clientID, lidar, vrep.simx_opmode_blocking)
-#     if code == 0:
-#         sensor_value.append(data[0])
-#     else:
-#         print('Error while retrieving LIDAR sensor data')
-#         sys.exit()
-#
-# vrep.simxStopSimulation(__clientID, vrep.simx_opmode_blocking)
-# plt.plot(sensor_value)
-# plt.show()
