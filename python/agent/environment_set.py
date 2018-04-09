@@ -5,7 +5,6 @@ import driver
 from gym import spaces
 import cv2
 import math
-from cv2tools import filt,vis
 
 
 class Tracker(gym.Env):
