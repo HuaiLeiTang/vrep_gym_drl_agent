@@ -79,17 +79,6 @@ class Tracker(gym.Env):
     def __getLidarPicture(self):
         return self._lidar.getReading()
 
-    # def getCurrentObs(self):
-    #     return self._lidar_obs
-
-    # def take_action(self, action):
-    #     # if action == 0:
-    #     #     driver.goForward()
-    #     self.venv.step_blocking_simulation()
-    #
-    #     self._lidar_obs = self.__getLidarPicture()
-    #     return self._lidar_obs
-
     def close(self):
         driver.stopSimulation()
         driver.cleanUp()
